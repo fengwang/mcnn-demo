@@ -14,8 +14,27 @@ git clone https://github.com/fengwang/mcnn-demo.git
 
 ### Download pretrained models and raw-data
 
+Download pretrained models and experimental dataset from `https://drive.google.com/drive/folders/1o5V6QJ3IbAkxwZknBI9HUL6OyUeMh2uH?usp=sharing`, and place all the files under folder `./data`
 
+### Dependencies
++ `keras`
++ `numpy`
++ `scikit-image`
++ `scipy`
++ `tifffile`
++ `imageio`
++ `Jupyter`
 
+### Tutorial
+
+This is a little tutorial showing how to reconstruct phase from its Laplacian using MCNN. If you want to try MCNN in your own inverse problem, you are suggested to start from here.
+
+```bash
+cd ./demo
+jupyter notebook
+```
+
+the select notebook `tutorial.ipynb`
 
 
 ## Phase retrieval from 32 de-focused images
@@ -76,6 +95,7 @@ Examples of the noisy experimental images
 ![](./data/example/noisy_512x512.png)
 
 and their corresponding clear output
+
 ![](./data/example/clear_128x128.png)
 ![](./data/example/clear_512x512.png)
 
