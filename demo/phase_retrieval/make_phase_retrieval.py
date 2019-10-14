@@ -6,7 +6,7 @@ from phase_norm import PhaseNormalization
 from keras.models import load_model
 from group_norm import GroupNormalization
 
-mm = load_model( '../../data/phase_retrieval_model_32.model' )
+mm = load_model( '../../data/phase_retrieval_16_single_gpu.model' )
 result = mm.predict( [a, b] )
 
 import imageio # save predicted phase and amplitude

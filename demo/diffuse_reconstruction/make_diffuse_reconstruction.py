@@ -30,6 +30,7 @@ def make_prediction( config ):
         model = model_from_json( file.read() )
 
     model.load_weights(model_weights_path)
+    model.save( '../../data/diffuse_reflection_single_gpu.model' )
     model.summary()
 
     input_data = np.load( input_path )
