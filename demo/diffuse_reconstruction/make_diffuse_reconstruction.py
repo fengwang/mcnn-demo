@@ -1,4 +1,4 @@
-from keras.models import model_from_json
+from keras.models import load_model
 from keras import backend
 import imageio
 import numpy as np
@@ -15,8 +15,7 @@ def dump_all_images( parent_path, arrays ):
     print(' ')
 
 def make_prediction( config ):
-    model_json_path = config['model_json_path']
-    model_weights_path = config['model_weights_path']
+    model_path = config['model_path']
     input_path = config['input_path']
     output_path = config['output_path']
     learning_phase_fix = config['learning_phase_fix']
@@ -26,15 +25,11 @@ def make_prediction( config ):
     if learning_phase_fix:
         backend.set_learning_phase( 1 )
 
-    with open(model_json_path, 'r') as file:
-        model = model_from_json( file.read() )
-
-    model.load_weights(model_weights_path)
-    model.save( '../../data/diffuse_reflection_single_gpu.model' )
-    model.summary()
+    model = load_model( model_path )
 
     input_data = np.load( input_path )
-    output_data_high_frequency, *_ = model.predict( input_data, batch_size=batch_size )
+    #output_data_high_frequency, *_ = model.predict( input_data, batch_size=batch_size )
+    output_data_high_frequency, *_ = model.predict( input_data[0:8], batch_size=batch_size )
 
     if not os.path.exists(output_path):
         os.makedirs(output_path)
@@ -46,8 +41,7 @@ def make_prediction( config ):
 
 if __name__ == '__main__':
     diffuse_reflection_prediction_config = {
-        'model_json_path': '../../data/diffuse_reflection.json',
-        'model_weights_path': '../../data/diffuse_reflection.weights',
+        'model_path': '../../data/diffuse_reflection_single_gpu.model',
         'input_path': '../../data/wall_mirror_input.npy',
         'output_path': '../../data/diffuse_reconstruction_outputs',
         'learning_phase_fix': True,

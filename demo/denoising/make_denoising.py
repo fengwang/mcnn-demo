@@ -86,10 +86,6 @@ def predict(image_path, prediction_path=None, enable_padding=True):
 
     K.clear_session()
 
-import glob
 if __name__ == '__main__':
-
-    all_tifs = glob.glob( '../../data/*.tif' )
-    for tif in all_tifs:
-        predict(tif)
-
+    predict( '../../data/s21.tif' )
+    predict( '../../data/s3.tif' )
