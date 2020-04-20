@@ -98,6 +98,26 @@ and their corresponding clear output
 
 ![](./data/example/clear_128x128.png)
 ![](./data/example/clear_512x512.png)
+### Citation
+
+We kindly ask you to cite our publication if you use our dataset, code or models in your work.
+
+```
+@article{wangMultiresolutionConvolutionalNeural2020,
+  title = {Multi-Resolution Convolutional Neural Networks for Inverse Problems},
+  author = {Wang, Feng and Eljarrat, Alberto and Müller, Johannes and Henninen, Trond R. and Erni, Rolf and Koch, Christoph T.},
+  date = {2020-03-31},
+  journaltitle = {Scientific Reports},
+  volume = {10},
+  pages = {1--11},
+  issn = {2045-2322},
+  doi = {10.1038/s41598-020-62484-z},
+  url = {https://www.nature.com/articles/s41598-020-62484-z},
+  urldate = {2020-04-01},
+  langid = {english},
+  number = {1}
+}
+```
 
 
 
